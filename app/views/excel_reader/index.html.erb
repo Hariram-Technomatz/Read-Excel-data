@@ -1,0 +1,28 @@
+<h1>Upload Excel File</h1>
+
+<%= form_with url: upload_path, local: false, multipart: true do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit 'Upload' %>
+<% end %>
+
+<% if @data.present? %>
+  <h2>Uploaded Data</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <% @data.first.keys.each do |key| %>
+          <th><%= key %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @data.each do |row| %>
+        <tr>
+          <% row.values.each do |value| %>
+            <td><%= value %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
