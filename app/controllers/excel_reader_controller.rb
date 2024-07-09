@@ -1,6 +1,5 @@
 class ExcelReaderController < ApplicationController
   def index
-    debugger
     @data = session.delete(:uploaded_data) || []
   end
 
